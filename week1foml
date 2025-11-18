@@ -1,0 +1,68 @@
+import pandas as pd
+import matplotlib.pyplot as plt
+import seaborn as sns
+import numpy as np
+df = pd.read_csv(&#39;../input/iris-dataset/iris.csv&#39;)
+df.head(150)
+df.shape
+
+(150,5)
+#univariate for sepal width
+df.loc[df[&#39;variety&#39;]==&#39;Setosa&#39;]
+df_Setosa=df.loc[df[&#39;variety&#39;]==&#39;Setosa&#39;]
+df_Virginica=df.loc[df[&#39;variety&#39;]==&#39;Virginica&#39;]
+df_Versicolor=df.loc[df[&#39;variety&#39;]==&#39;Versicolor&#39;]
+plt.scatter(df_Setosa[&#39;sepal.width&#39;],np.zeros_like(df_Setosa[&#39;sepal.width&#39;]))
+plt.scatter(df_Virginica[&#39;sepal.width&#39;],np.zeros_like(df_Virginica[&#39;sepal.width&#39;]))
+plt.scatter(df_Versicolor[&#39;sepal.width&#39;],np.zeros_like(df_Versicolor[&#39;sepal.width&#39;]))
+plt.xlabel(&#39;sepal.width&#39;)
+plt.show()
+
+#univariate for sepal length
+df.loc[df[&#39;variety&#39;]==&#39;Setosa&#39;]
+df_Setosa=df.loc[df[&#39;variety&#39;]==&#39;Setosa&#39;]
+df_Virginica=df.loc[df[&#39;variety&#39;]==&#39;Virginica&#39;]
+df_Versicolor=df.loc[df[&#39;variety&#39;]==&#39;Versicolor&#39;]
+plt.scatter(df_Setosa[&#39;sepal.length&#39;],np.zeros_like(df_Setosa[&#39;sepal.length&#39;]))
+plt.scatter(df_Virginica[&#39;sepal.length&#39;],np.zeros_like(df_Virginica[&#39;sepal.length&#39;]))
+plt.scatter(df_Versicolor[&#39;sepal.length&#39;],np.zeros_like(df_Versicolor[&#39;sepal.length&#39;]))
+plt.xlabel(&#39;sepal.length&#39;)
+plt.show()
+
+#univariate for petal width
+df.loc[df[&#39;variety&#39;]==&#39;Setosa&#39;]
+df_Setosa=df.loc[df[&#39;variety&#39;]==&#39;Setosa&#39;]
+df_Virginica=df.loc[df[&#39;variety&#39;]==&#39;Virginica&#39;]
+df_Versicolor=df.loc[df[&#39;variety&#39;]==&#39;Versicolor&#39;]
+plt.scatter(df_Setosa[&#39;petal.width&#39;],np.zeros_like(df_Setosa[&#39;petal.width&#39;]))
+plt.scatter(df_Virginica[&#39;petal.width&#39;],np.zeros_like(df_Virginica[&#39;petal.width&#39;]))
+plt.scatter(df_Versicolor[&#39;petal.width&#39;],np.zeros_like(df_Versicolor[&#39;petal.width&#39;]))
+plt.xlabel(&#39;petal.width&#39;)
+plt.show()
+
+#univariate for petal length
+
+
+df.loc[df[&#39;variety&#39;]==&#39;Setosa&#39;]
+df_Setosa=df.loc[df[&#39;variety&#39;]==&#39;Setosa&#39;]
+df_Virginica=df.loc[df[&#39;variety&#39;]==&#39;Virginica&#39;]
+df_Versicolor=df.loc[df[&#39;variety&#39;]==&#39;Versicolor&#39;]
+plt.scatter(df_Setosa[&#39;petal.length&#39;],np.zeros_like(df_Setosa[&#39;petal.length&#39;]))
+plt.scatter(df_Virginica[&#39;petal.length&#39;],np.zeros_like(df_Virginica[&#39;petal.length&#39;]))
+plt.scatter(df_Versicolor[&#39;petal.length&#39;],np.zeros_like(df_Versicolor[&#39;petal.length&#39;]))
+plt.xlabel(&#39;petal.length&#39;)
+plt.show()
+
+
+#bivariate sepal.width vs petal.width
+
+sns.FacetGrid(df,hue=&#39;variety&#39;,size=5).map(plt.scatter,&quot;sepal.width&quot;,&quot;petal.width&quot;).add_legend();
+
+plt.show()
+
+#bivariate sepal.length vs petal.length
+sns.FacetGrid(df,hue=&#39;variety&#39;,size=5).map(plt.scatter,&quot;sepal.length&quot;,&quot;petal.length&quot;).add_leg
+end(); plt.show()
+
+#multivariate all the features
+sns.pairplot(df,hue=&quot;variety&quot;,size=2)
