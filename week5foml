@@ -1,0 +1,133 @@
+import pandas as pd
+import numpy as np
+bnotes = pd.read_csv(&#39;../input/banknotes-dataset/bank_note_data.csv&#39;)
+bnotes.head(10)
+x = bnotes.drop(&#39;Class&#39;,axis=1)
+y = bnotes[&#39;Class&#39;]
+print(x.head(2))
+print(y.head(2))
+
+from sklearn.model_selection import train_test_split
+
+#train_test ratio = 0.2
+x_train,x_test,y_train,y_test =
+train_test_split(x,y,test_size=0.2) from sklearn.neural_network
+import MLPClassifier
+
+# activation function : relu
+
+mlp = MLPClassifier(max_iter=500,activation=&#39;relu&#39;)
+mlp.fit(x_train,y_train)
+
+MLPClassifier(max_iter=500)
+
+pred = mlp.predict(x_test)
+print(pred)
+
+from sklearn.metrics import classification_report,confusion_matrix
+confusion_matrix(y_test,pred)
+
+array([[153, 0], [0, 122]])
+print(classification_report(y_test,pred))
+
+# activation function : logistic
+
+mlp = MLPClassifier(max_iter=500,activation=&#39;logistic&#39;)
+mlp.fit(x_train,y_train)
+
+MLPClassifier(activation=&#39;logistic&#39;, max_iter=500)
+
+pred = mlp.predict(x_test)
+print(pred)
+
+
+from sklearn.metrics import classification_report,confusion_matrix
+confusion_matrix(y_test,pred)
+
+print(classification_report(y_test,pred))
+
+# activation function : tanh
+
+mlp = MLPClassifier(max_iter=500,activation=&#39;tanh&#39;)
+mlp.fit(x_train,y_train)
+pred = mlp.predict(x_test)
+print(pred)
+
+from sklearn.metrics import classification_report, confusion_matrix
+confusion_matrix(y_test,pred)
+
+print(classification_report(y_test,pred))
+
+
+# activation function : identity
+
+mlp = MLPClassifier(max_iter=500,activation=&#39;identity&#39;)
+mlp.fit(x_train,y_train)
+MLPClassifier(activation=&#39;identity&#39;, max_iter=500)
+pred = mlp.predict(x_test)
+print(pred)
+
+from sklearn.metrics import classification_report,confusion_matrix
+confusion_matrix(y_test,pred)
+
+print(classification_report(y_test,pred))
+
+
+#train_test ratio = 0.3
+x_train,x_test,y_train,y_test =
+train_test_split(x,y,test_size=0.3) from sklearn.neural_network
+import MLPClassifier
+
+# activation function : relu
+
+mlp =
+MLPClassifier(max_iter=500,activation=&#39;relu&#39;)
+mlp.fit(x_train,y_train)
+MLPClassifier(max_iter=500)
+pred = mlp.predict(x_test)
+print(pred)
+
+from sklearn.metrics import classification_report,confusion_matrix
+confusion_matrix(y_test,pred)
+
+print(classification_report(y_test,pred))
+
+
+# activation function : logistic
+
+mlp = MLPClassifier(max_iter=500,activation=&#39;logistic&#39;)
+mlp.fit(x_train,y_train)
+MLPClassifier(max_iter=500,activation=&#39;logistic&#39;)
+
+pred = mlp.predict(x_test)
+print(pred)
+MLPClassifier(max_iter=500,activation=&#39;tanh&#39;)
+
+from sklearn.metrics import classification_report,confusion_matrix
+confusion_matrix(y_test,pred)
+
+# activation function : tanh
+
+mlp = MLPClassifier(max_iter=500,activation=&#39;tanh&#39;)
+mlp.fit(x_train,y_train)
+pred = mlp.predict(x_test)
+print(pred)
+
+
+from sklearn.metrics import classification_report,confusion_matrix
+confusion_matrix(y_test,pred)
+
+# activation function : identity
+
+mlp = MLPClassifier(max_iter=500,activation=&#39;identity&#39;)
+mlp.fit(x_train,y_train)
+MLPClassifier(max_iter=500,activation=&#39;identity&#39;)
+
+pred = mlp.predict(x_test)
+print(pred)
+
+
+from sklearn.metrics import classification_report,confusion_matrix
+confusion_matrix(y_test,pred)
+
+print(classification_report(y_test,pred))
