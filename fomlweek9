@@ -1,0 +1,80 @@
+import numpy as np
+import matplotlib.pyplot as plt
+import pandas as pd
+
+dataset = pd.read_csv(&#39;../input/mall-customers/Mall_Customers.csv&#39;)
+X = dataset.iloc[:,[3,4]].values
+print(dataset)
+
+from sklearn.cluster import KMeans
+wcss =[]
+for i in range (1,11):
+kmeans = KMeans(n_clusters = i, init = &#39;k-means++&#39;, max_iter =300, n_init = 10, random_state
+= 0)
+
+81
+
+kmeans.fit(X)
+wcss.append(kmeans.inertia_)
+
+# Plot the graph to visualize the Elbow Method to find the optimal number of cluster
+plt.plot(range(1,11),wcss)
+plt.title(&#39;The Elbow Method&#39;)
+plt.xlabel(&#39;Number of clusters&#39;)
+plt.ylabel(&#39;WCSS&#39;)
+plt.show()
+
+kmeans=KMeans(n_clusters= 5, init = &#39;k-means++&#39;, max_iter = 300, n_init = 10, random_state = 0)
+y_kmeans = kmeans.fit_predict(X)
+y_kmeans
+
+82
+
+type(y_kmeans)
+
+y_kmeans
+
+plt.scatter(X[y_kmeans == 0, 0], X[y_kmeans == 0, 1], s = 100, c = &#39;red&#39;, label = &#39;Cluster 1&#39;)
+
+83
+
+plt.scatter(X[y_kmeans == 1, 0], X[y_kmeans == 1, 1], s = 100, c = &#39;blue&#39;, label = &#39;Cluster 2&#39;)
+
+plt.scatter(X[y_kmeans == 2, 0], X[y_kmeans == 2, 1], s = 100, c = &#39;green&#39;, label = &#39;Cluster
+3&#39;)
+
+84
+
+plt.scatter(X[y_kmeans == 3, 0], X[y_kmeans == 3, 1], s = 100, c = &#39;cyan&#39;, label = &#39;Cluster 4&#39;)
+
+plt.scatter(X[y_kmeans == 4, 0], X[y_kmeans == 4, 1], s = 100, c = &#39;magenta&#39;, label =
+&#39;Cluster 5&#39;)
+
+plt.scatter(kmeans.cluster_centers_[:, 0], kmeans.cluster_centers_[:, 1], s = 300, c = &#39;yellow&#39;,
+label = &#39;Centroids&#39;)
+
+85
+
+plt.title(&#39;Clusters of customers&#39;)
+plt.xlabel(&#39;Annual Income (k$)&#39;)
+plt.ylabel(&#39;Spending Score (1-100)&#39;)
+plt.legend()
+plt.show()
+
+plt.scatter(X[y_kmeans == 0, 0], X[y_kmeans == 0, 1], s = 100, c = &#39;red&#39;, label = &#39;Cluster 1&#39;)
+plt.scatter(X[y_kmeans == 1, 0], X[y_kmeans == 1, 1], s = 100, c = &#39;blue&#39;, label = &#39;Cluster 2&#39;)
+plt.scatter(X[y_kmeans == 2, 0], X[y_kmeans == 2, 1], s = 100, c = &#39;green&#39;, label = &#39;Cluster
+3&#39;)
+plt.scatter(X[y_kmeans == 3, 0], X[y_kmeans == 3, 1], s = 100, c = &#39;cyan&#39;, label = &#39;Cluster 4&#39;)
+
+86
+
+plt.scatter(X[y_kmeans == 4, 0], X[y_kmeans == 4, 1], s = 100, c = &#39;magenta&#39;, label =
+&#39;Cluster 5&#39;)
+plt.scatter(kmeans.cluster_centers_[:, 0], kmeans.cluster_centers_[:, 1], s = 300, c = &#39;yellow&#39;,
+label = &#39;Centroids&#39;)
+plt.title(&#39;Clusters of customers&#39;)
+plt.xlabel(&#39;Annual Income (k$)&#39;)
+plt.ylabel(&#39;Spending Score (1-100)&#39;)
+plt.legend()
+plt.show()
